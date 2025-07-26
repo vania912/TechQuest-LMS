@@ -1,0 +1,483 @@
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: 'Times New Roman', Times, serif;
+            /* or any clean sans-serif */
+            background: linear-gradient(120deg, #a6c0fe, #f68084);
+            color: #222;
+
+        }
+
+        nav.navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: #000;
+            background: linear-gradient(120deg, #a6c0fe, #f68084);
+
+
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 22px;
+            font-weight: 900;
+            transition: 0.8s ease-in;
+            padding: 10px;
+            color: #320A6B;
+
+        }
+
+        .navbar-nav .nav-link:hover {
+            /* text-transform: uppercase; */
+            color: #D6C3FF;
+            background-color: #320A6B;
+            font-size: 26px;
+            padding: 8px;
+            margin: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .navbar-brand {
+            font-size: 26px;
+            font-weight: 800;
+
+        }
+
+
+        form .form-control {
+            border-radius: 8px;
+            border: 2px solid #320A6B;
+        }
+
+        form .btn {
+            border-radius: 8px;
+        }
+
+        .main-content {
+            background-image: url("/static/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            background-color: #fff;
+            /* covers full screen height */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+
+
+        .btn-outline-success {
+            color: #000000;
+            border-color: rgba(78, 78, 78, 0.422);
+            /* transition: all 0.3s ease; */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+            padding: 12px;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+        }
+
+        .btn-outline-success::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #D6C3FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+
+        .btn-outline-success:hover {
+            color: #320A6B;
+            border-color: #D6C3FF;
+            font-weight: 600;
+
+        }
+
+        .btn-outline-success:hover::before {
+            width: 100%;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popBounce {
+            0% {
+                transform: scale(0.4);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .custom-signup-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .custom-signup-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #D6C3FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .custom-signup-btn:hover {
+            color: #320A6B;
+            border: 2px solid #320A6B;
+            font-weight: 600;
+        }
+
+        .custom-signup-btn:hover::before {
+            width: 100%;
+        }
+
+        .custom-search-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+            padding: 13px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .custom-search-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #D6C3FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .custom-search-btn:hover {
+            color: #320A6B;
+            border: 2px solid #320A6B;
+        }
+
+        .custom-search-btn:hover::before {
+            width: 100%;
+        }
+
+        .custom-signup-btn,
+        .custom-search-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+            padding: 13px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        /* Button hover overlay background */
+        .custom-signup-btn::before,
+        .custom-search-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #E5D9FF;
+            /* Lighter version of D6C3FF for reduced grayness */
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        /* Hover styles */
+        .custom-signup-btn:hover,
+        .custom-search-btn:hover {
+            color: #320A6B;
+            border-color: #B89EFF;
+            /* Slightly muted purple border */
+        }
+
+        .custom-signup-btn:hover::before,
+        .custom-search-btn:hover::before {
+            width: 100%;
+        }
+
+        .hero-section {
+            margin-top: 200px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 50px;
+            /* Space between cards */
+            flex-wrap: wrap;
+            /* Allows cards to wrap on smaller screens */
+            justify-content: center;
+            background-color: #fff;
+            border: 1px solid lightgray;
+            /* border-radius: 10px; */
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            background-image: url("/static/images/heroSection.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            /* covers full screen height */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 320px;
+            /* Max width for each card */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+            /* Using a placeholder for the icon. In a real scenario, you'd use SVG or an icon font */
+            background-color: #B89EFF;
+            /* Light green background for the icon area */
+            border-radius: 50%;
+            /* Makes it circular if your icon is meant to be in a circle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #320A6B;
+            /* Green color for the icon */
+            box-shadow: inset 0 0 0 3px #320A6B;
+            /* Inner border for the icon */
+            padding: 10px;
+        }
+
+        /* Specific icon styles based on the image */
+        .card-icon.design .layer-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .card-icon.design .layer-icon::before,
+        .card-icon.design .layer-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #320A6B;
+            border-radius: 5px;
+            transform-origin: center;
+        }
+
+        .card-icon.design .layer-icon::before {
+            transform: translate(-5px, -5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.design .layer-icon::after {
+            transform: translate(5px, 5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.planned .compass-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            border: 2px solid #320A6B;
+            border-radius: 50%;
+        }
+
+        .card-icon.planned .compass-icon::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .card-icon.planned .compass-icon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .read-more-btn {
+            background-color: #320A6B;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #B89EFF;
+        }
+
+        /* Responsive adjustments */
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .intro h1 {
+                font-size: 2.2rem;
+            }
+
+            .intro p {
+                font-size: 1.1rem;
+            }
+
+            .intro-image {
+                margin-top: 30px;
+            }
+
+            .intro-image img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro p {
+                font-size: 1rem;
+            }
+
+            .intro button {
+                font-size: 0.95rem;
+                padding: 10px 20px;
+            }
+        }
