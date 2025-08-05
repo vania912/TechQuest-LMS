@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - TechQuest </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif !important;
+            background: #E5D9FF;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* Sticky and Transparent Navbar */
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* semi-transparent */
+            backdrop-filter: blur(8px);
+            /* Optional: adds glassy blur */
+            transition: all 0.3s ease;
+            box-shadow: none;
+        }
+
+        /* Add shadow on scroll */
+        .sticky-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.95);
+            /* Slightly more opaque */
+        }
+
+
+        /* Navbar Styling */
+        nav.navbar {
+            padding: 15px 30px;
+            background: #E5D9FF !important;
+            backdrop-filter: blur(0px);
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+            background-color: rgba(166, 192, 254, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        nav.navbar.scrolled {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: rgba(166, 192, 254, 0.7);
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 22px;
+            font-weight: 900;
+            transition: 0.8s ease-in;
+            padding: 10px;
+            color: #320A6B;
+            margin-left: 8px 0px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #D6C3FF;
+            background-color: #320A6B;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 26px;
+            font-weight: 800;
+            color: #320A6B;
+        }
+
+        .nav-link dropdown-toggle .dropdown-menu {
+            background-color: #E5D9FF !important;
+            color: #320A6B;
+        }
+
+        .dropdown-divider {
+            color: #320A6B;
+        }
+
+        .title {
+            /* font-size: 24px; */
+            padding-top: 80px;
+            margin-top: 80px;
+            color: #320A6B;
+            padding-top: 35px;
+            font-weight: 900;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Card and Carousel Styling */
+        .card-title {
+            color: #320A6B;
+            font-weight: 700;
+        }
+
+        .card-text {
+            color: #320A6B;
+        }
+
+        .btn-primary {
+            background-color: #320A6B;
+            border-color: #320A6B;
+        }
+
+        .btn-primary:hover {
+            background-color: #4A1A8D;
+            border-color: #4A1A8D;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #fff;
+            border: 1px solid lightgray;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../static/images/heroSection.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 99vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            text-align: center;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            background-color: #D6C3FF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #320A6B;
+            box-shadow: inset 0 0 0 3px #320A6B;
+            padding: 10px;
+        }
+
+        .card-icon.design .layer-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .card-icon.design .layer-icon::before,
+        .card-icon.design .layer-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #320A6B;
+            border-radius: 5px;
+            transform-origin: center;
+        }
+
+        .card-icon.design .layer-icon::before {
+            transform: translate(-5px, -5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.design .layer-icon::after {
+            transform: translate(5px, 5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.planned .compass-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            border: 2px solid #320A6B;
+            border-radius: 50%;
+        }
+
+        .card-icon.planned .compass-icon::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .card-icon.planned .compass-icon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .carousel-wrapper {
+                max-width: 90%;
+                margin-bottom: 30px;
+            }
+        }
+
+        ul.para,
+        p.para {
+            text-align: justify;
+            font-size: 20px;
+            margin-left: 170px;
+            margin-right: 170px;
+        }
+
+        .hero {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            margin-top: 0;
+        }
+
+        .container1 {
+            margin-top: 100px;
+            color: #320A6B;
+            background-color: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+                0 -8px 32px rgba(0, 0, 0, 0.15);
+            padding: 50px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">TechQuest</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Courses
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">HTML</a></li>
+                                <li><a class="dropdown-item" href="#">CSS</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">JavaScript</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tutorials
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">React JS</a></li>
+                                <li><a class="dropdown-item" href="#">Angular</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Express</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" target="_blank">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" target="_blank">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <div class="hero" style="text-align: center;background-color: white; margin-bottom: 100px;">
+        <h1 class='title'>TechQuest
+        </h1>
+        <main class="main d-flex justify-content-center align-items-center"
+            style="min-height: 80vh;  padding: 100px 0; ">
+
+            <div class="d-flex flex-wrap gap-5 justify-content-center">
+                <div class="card" style="width: 25rem;">
+                    <img src="../static/images/mainContent.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Explore</h5>
+                        <p class="card-text">Dive into the world of technology with curiosity and confidence. At
+                            TechQuest,
+                            exploration is the first step to turning imagination into innovation.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 25rem;">
+                    <img src="../static/images/card2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Learn</h5>
+                        <p class="card-text">At TechQuest, learning goes beyond tutorials — it's about building real
+                            skills
+                            through hands-on experiences, challenges, and continuous growth. Whether you're a beginner
+                            or a
+                            pro,
+                            your journey to mastery starts here.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 25rem;">
+                    <img src="../static/images/card3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Innovate</h5>
+                        <p class="card-text">At TechQuest, we believe innovation starts with curiosity and grows through
+                            action.
+                            Turn your ideas into impact with the right tools, guidance, and a spark of creativity.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <div class="container1">
+        <div class="mission">
+            <h1 style="text-align: center;font-weight: 900;margin-top: 50px;  padding-bottom: 20px;">Our Mission</h1>
+            <h3 style="text-align: center; padding-bottom: 25px;">Empowering Minds, Shaping Futures through Technology
+                and Learning</h3>
+            <p class="para"> At TechQuest, our mission is to make technology education accessible, meaningful,
+                and empowering for
+                everyone—regardless
+                of background, experience, or location. We believe that learning should not be confined to classrooms,
+                expensive
+                courses, or limited resources. In a rapidly evolving digital world, knowledge is power, and we aim to
+                place
+                that power
+                directly in the hands of learners through an intuitive, inclusive, and innovative platform.
+
+                Our journey began with a simple idea: to create a unified space where exploration, learning, and
+                innovation
+                converge. We
+                envisioned a platform where learners could not only access high-quality tutorials and tech content, but
+                also
+                find a
+                supportive ecosystem that nurtures their curiosity and helps them build confidence in applying their
+                skills.
+                Whether
+                someone is just starting their coding journey, looking to switch careers, or aiming to master emerging
+                technologies like
+                AI and IoT, TechQuest is designed to grow with them—every step of the way.
+
+                We are not just a repository of tutorials or blog posts. Our mission stretches beyond content delivery.
+                We
+                strive to
+                cultivate engaged learning by offering interactive resources, project-based learning, and a strong
+                community
+                culture.
+                Our platform supports both students and educators, offering tools for progress tracking, test
+                preparation,
+                certification, and collaborative learning.
+
+
+                TechQuest empowers learners through a multi-layered ecosystem:</p>
+            <ul class="para">
+
+
+                <li> Explore the vast landscape of technology through tutorials, articles, and real-world projects.</li>
+
+                <li> Learn core concepts and advanced skills with structured modules and practical guidance.</li>
+
+                <li>Innovate by applying knowledge to solve real problems, contribute to open-source projects, or build
+                    something completely
+                    new.</li>
+            </ul>
+            <p class="para">Our mission is to create a world where technology education is accessible, inclusive, and
+                Our mission is guided by inclusivity. We are committed to reaching underrepresented communities in tech
+                and
+                making sure
+                every learner—no matter where they’re from or what resources they have—can find a path to success
+                through
+                TechQuest. We
+                believe that education is a human right, and with the right tools and encouragement, anyone can thrive.
+
+                To make this vision a reality, we focus on:
+            </p>
+            <ul class="para">
+                <li> Creating high-quality content that simplifies complex ideas.</li>
+
+                <li> Building intuitive, accessible interfaces for all users.</li>
+
+                <li> Encouraging continuous feedback and collaboration from our users.</li>
+
+                <li> Supporting multiple learning styles—from visual learners to hands-on builders.</li>
+
+                <li> Connecting learners with mentors, educators, and peers.</li>
+
+                <li> Integrating real-time learning and assessment features for better outcomes.</li>
+            </ul>
+            <p class="para">Our goal is not just to teach technology but to empower individuals to create positive chang
+                TechQuest also recognizes the power of innovation. That’s why we support creativity, experimentation,
+                and
+                personal
+                projects. Our platform offers more than pre-defined courses; we foster an environment where learners are
+                encouraged to
+                question, design, build, and iterate. Innovation doesn’t just happen in labs or startups—it begins with
+                one
+                inspired
+                learner who dares to think differently. TechQuest aims to be the spark that ignites those ideas.
+
+                As we grow, we also prioritize staying ahead of the curve. We regularly update our content to reflect
+                current industry
+                trends, tools, and technologies—ensuring that our learners stay relevant and prepared for the job
+                market.
+                Whether it's
+                Data Science, Web Development, Cybersecurity, or Machine Learning, TechQuest is committed to providing
+                future-ready
+                learning.
+
+                Above all, our mission is to ignite a lifelong passion for learning and innovation in every individual
+                we
+                reach. In a
+                world that’s increasingly digital, we believe that those who embrace learning today will lead tomorrow.
+                Through
+                TechQuest, we aim to democratize access to quality education, inspire minds to dream big, and equip them
+                with the tools
+                they need to turn those dreams into reality.
+
+                TechQuest is more than just a platform—it’s a movement. A movement to reshape how people learn, grow,
+                and
+                connect
+                through technology.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="container2"></div>
+
+
+
+
+
+
+
+    
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".sticky-navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("sticky-shadow");
+            } else {
+                navbar.classList.remove("sticky-shadow");
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

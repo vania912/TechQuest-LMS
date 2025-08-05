@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +7,539 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif !important;
+            background: #E5D9FF;
+            height: 100%;
+            overflow-y: auto;
+            padding-top: 90px;
+        }
 
-    <link rel="stylesheet" href="static/home.css">
+
+        /* Navbar Styling */
+        nav.navbar {
+            padding: 15px 30px;
+            background: #E5D9FF !important;
+            backdrop-filter: blur(0px);
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+            background-color: rgba(166, 192, 254, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        nav.navbar.scrolled {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: rgba(166, 192, 254, 0.7);
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 22px;
+            font-weight: 900;
+            transition: 0.8s ease-in;
+            padding: 10px;
+            color: #320A6B;
+            margin-left: 8px 0px;
+
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #D6C3FF;
+            background-color: #320A6B;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .nav-link dropdown-toggle .dropdown-menu {
+            background-color: #E5D9FF !important;
+            color: #320A6B;
+        }
+
+        .dropdown-divider {
+            color: #320A6B;
+        }
+
+        /* Form Styling */
+        form .form-control {
+            border-radius: 8px;
+            border: 2px solid #ac8adc;
+        }
+
+        form .btn {
+            border-radius: 8px;
+        }
+
+        /* Hero/Main Content Section */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 80px 80px;
+            /* More transparent background */
+            color: #000;
+            position: relative;
+        }
+
+        /* Add a subtle overlay for better text readability */
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+            border-radius: 15px;
+            /* Semi-transparent white background */
+            color: #000 !important;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .left-column {
+            background-color: rgba(212, 208, 208, 0.242);
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+            padding-bottom: -10px !important;
+            margin-bottom: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            text-align: center !important;
+        }
+
+
+        /* Ensure all text inside columns is black */
+        /* .left-column *,
+        .right-column * {
+            color: #000 !important;
+        } */
+
+        .left-column h2 {
+            color: #320A6B !important;
+            font-weight: 900;
+            margin-top: 20px;
+        }
+
+        .left-column p,
+        .right-column p {
+            color: #000 !important;
+            font-size: 26px;
+            line-height: 1.7;
+        }
+
+
+        /* Overlay now lighter and improves text visibility */
+        .overlay {
+            background-repeat: no-repeat;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(rgba(0, 0, 0, 0.539), rgba(0, 0, 0, 0.539)), url("../static/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: darken;
+        }
+
+        .row {
+            background-color: white;
+            width: max-content;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 80px;
+            border-radius: 13px;
+
+        }
+
+        img.main {
+            height: 550px;
+            width: 630px;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 10px solid #320A6B;
+            border-radius: 50px;
+            margin-left: 90px !important;
+        }
+
+
+        /* Button Style */
+        .btn-outline-success {
+            width: max-content;
+            padding: 15px;
+            background-color: #320A6B;
+            color: white !important;
+            border: 2px solid #320A6B;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .btn-outline-success::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #D6C3FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .btn-outline-success:hover {
+            color: #320A6B !important;
+            border-color: #D6C3FF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(50, 10, 107, 0.3);
+        }
+
+        .btn-outline-success:hover::before {
+            width: 100%;
+        }
+
+        /* Tagline Under Button */
+        .tagline {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #666 !important;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .custom-signup-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: auto;
+            padding: 12px 20px;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .custom-signup-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #E5D9FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .custom-signup-btn:hover {
+            color: #320A6B;
+            border-color: #B89EFF;
+            text-decoration: none;
+        }
+
+        .custom-signup-btn:hover::before {
+            width: 100%;
+        }
+
+        .custom-search-btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            background-color: #320A6B;
+            color: white;
+            border: 2px solid #320A6B;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.4s ease, border-color 0.3s ease;
+            padding: 13px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .custom-search-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #E5D9FF;
+            z-index: -1;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .custom-search-btn:hover {
+            color: #320A6B;
+            border-color: #B89EFF;
+        }
+
+        .custom-search-btn:hover::before {
+            width: 100%;
+        }
+
+        .hero-section {
+            margin-top: 200px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #fff;
+            border: 1px solid lightgray;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../static/images/heroSection.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 99vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            text-align: center;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            background-color: #D6C3FF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #320A6B;
+            box-shadow: inset 0 0 0 3px #320A6B;
+            padding: 10px;
+        }
+
+        .card-icon.design .layer-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .card-icon.design .layer-icon::before,
+        .card-icon.design .layer-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #320A6B;
+            border-radius: 5px;
+            transform-origin: center;
+        }
+
+        .card-icon.design .layer-icon::before {
+            transform: translate(-5px, -5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.design .layer-icon::after {
+            transform: translate(5px, 5px);
+            opacity: 0.7;
+        }
+
+        .card-icon.planned .compass-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            border: 2px solid #320A6B;
+            border-radius: 50%;
+        }
+
+        .card-icon.planned .compass-icon::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .card-icon.planned .compass-icon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #320A6B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .read-more-btn {
+            background-color: #320A6B;
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #D6C3FF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(50, 10, 107, 0.3);
+            color: #320A6B;
+            font-weight: 800;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 20px;
+            }
+
+            .left-column,
+            .right-column {
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            .left-column,
+            .right-column {
+                padding: 20px;
+                margin: 15px 0;
+            }
+        }
+
+        .footer {
+            background-color: #E5D9FF;
+            /* Or #1a1a1a for a dark grey */
+            color: #320A6B !important;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #320A6B !important;
+        }
+
+        .footer-right a {
+            color: #320A6B;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-right a:hover {
+            color: #320A6B;
+        }
+    </style>
 </head>
 
 <body>
     <section class="header">
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">TechQuest</a>
@@ -29,7 +553,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -59,7 +582,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" target="_blank">About</a>
+                            <a class="nav-link" href="{% url 'about' %}" target="_blank">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="" target="_blank">Contact</a>
@@ -69,45 +592,51 @@
                         <input class="form-control me-3 py-2 px-3" type="search" placeholder="Search"
                             aria-label="Search" />
                         <button class="custom-search-btn me-3" type="submit">Search</button>
-
                     </form>
                     <form class="d-flex" role="sign-in/sign-up">
-
-                        <a class="custom-signup-btn" href="login.html">Sign-up</a>
-
+                        <a class="custom-signup-btn" href="{% url 'login'%}">Login/Signup</a>
                     </form>
-
                 </div>
             </div>
         </nav>
-
     </section>
 
-    <div class="main-content">
-        <!-- <div class="col">
-            <h2 class="heading">Welcome to TechQuest</h2>
-            <p class="para">TechQuest is an innovative learning platform designed to empower students and tech
-                enthusiasts with high-quality
-                tutorials, hands-on projects, and practical resources in programming, data science, web development, and
-                more.</p>
+    <div class="overlay">
+        <div class="main-content">
+            <div class="row">
+                <div class="left-column">
+                    <h2>Welcome to TechQuest</h2>
+                    <p style="text-align:justify !important; margin-top: 15px !important;">Technology isn’t just
+                        evolving —
+                        it’s
+                        transforming how we
+                        learn, build, and grow. Embrace the change,
+                        one click at a
+                        time.
+                        From curious minds to tech pioneers — start your journey to master the skills that shape
+                        tomorrow.
+                    </p>
+                    <button class="btn-outline-success">Let's Get Started</button>
+                    <p class="tagline">Empower your journey — one click at a time!</p>
+                </div>
+
+                <div class="right-column">
+                    <img src="../static/images/mainContent.jpg" alt="Main Content Image" class="main">
+                </div>
+            </div>
         </div>
-        <div class="col"></div> -->
     </div>
-
-
 
     <section class="hero-section">
         <div class="carousel-container">
-
             <div class="card">
                 <div class="card-icon design">
                     <div class="layer-icon"></div>
                 </div>
                 <h3 class="card-title">PERFECTLY DESIGN</h3>
                 <p class="card-description">A small river named Duden flows by their place and supplies it with the
-                    necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                </p>
+                    necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into
+                    your mouth.</p>
                 <a href="#" class="read-more-btn">Read more</a>
             </div>
 
@@ -117,9 +646,8 @@
                 </div>
                 <h3 class="card-title">CAREFULLY PLANNED</h3>
                 <p class="card-description">A small river named Duden flows by their place and supplies it with the
-                    necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                </p>
+                    necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into
+                    your mouth.</p>
                 <a href="#" class="read-more-btn">Read more</a>
             </div>
 
@@ -129,27 +657,44 @@
                 </div>
                 <h3 class="card-title">SMARTLY EXECUTE</h3>
                 <p class="card-description">A small river named Duden flows by their place and supplies it with the
-                    necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                </p>
+                    necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into
+                    your mouth.</p>
                 <a href="#" class="read-more-btn">Read more</a>
             </div>
         </div>
-        </div>
     </section>
 
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>TechQuest</h3>
+                <p>&copy; 2025 TechQuest. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">About</a>
+                <a href="#">Courses</a>
+                <a href="#">Tutorials</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            const scrollThreshold = 100; // How far down the user needs to scroll (in pixels) for the blur to activate
 
-
-    <section class="footer"></section>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > scrollThreshold) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
         crossorigin="anonymous"></script>
 </body>
 
