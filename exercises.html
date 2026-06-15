@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Exercises — TechQuest</title>
+<meta name="description" content="Hands-on, auto-checked Python and AI exercises. Write code, run it, and get instant feedback." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="nav-wrap"><nav class="nav">
+  <a href="index.html" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b>Quest</b><span class="spark">.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-nav="index.html">Home</a></li><li><a href="about.html" data-nav="about.html">About</a></li>
+    <li><a href="courses.html" data-nav="courses.html">Courses</a></li><li><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a></li>
+    <li><a href="exercises.html" data-nav="exercises.html">Exercises</a></li><li><a href="quiz.html" data-nav="quiz.html">Quiz</a></li>
+  </ul>
+  <div class="nav-cta"><a href="playground.html" class="btn btn-primary btn-sm menu-cta"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Code Lab</a><button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
+</nav></div>
+<div class="overlay"></div>
+<aside class="mobile-menu">
+  <a href="index.html" data-nav="index.html">Home</a><a href="about.html" data-nav="about.html">About</a>
+  <a href="courses.html" data-nav="courses.html">Courses</a><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a>
+  <a href="exercises.html" data-nav="exercises.html">Exercises</a><a href="quiz.html" data-nav="quiz.html">Quiz</a>
+  <a href="playground.html" class="btn btn-primary">Open Code Lab</a>
+</aside>
+
+<main class="page">
+  <section style="padding-top:20px;padding-bottom:30px">
+    <div class="container">
+      <div class="section-head reveal in" style="max-width:740px">
+        <span class="eyebrow"><span class="dot"></span> Practice</span>
+        <h2 style="font-size:clamp(2.2rem,5vw,3.2rem)">Exercises that check themselves.</h2>
+        <p class="lead">Write the code, hit <b>Check answer</b>, and we run it for real and compare the output. Stuck? Reveal a hint or the full solution — no judgement.</p>
+      </div>
+      <div class="chips reveal" id="exFilters">
+        <button class="chip active" data-f="all">All</button>
+        <button class="chip" data-f="python">🐍 Python</button>
+        <button class="chip" data-f="ai">🤖 AI</button>
+      </div>
+      <div class="card reveal" style="margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="ico ico-mint" style="margin:0"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><b style="font-family:var(--font-display);font-size:1.1rem" id="solvedCount">0 of 0 solved</b><p style="font-size:.9rem">Your progress this session</p></div>
+        </div>
+        <div class="progress" style="flex:1;min-width:160px;margin:0"><i id="solvedBar" style="width:0%"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="grid" id="exGrid" style="gap:22px"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b style="color:var(--mint-400)">Quest</b></div><p>The hands-on way to learn AI &amp; Python.</p></div>
+    <div><h5>Learn</h5><ul><li><a href="courses.html">Courses</a></li><li><a href="tutorial.html">Tutorials</a></li><li><a href="exercises.html">Exercises</a></li><li><a href="quiz.html">Quiz</a></li></ul></div>
+    <div><h5>Product</h5><ul><li><a href="playground.html">Code Lab</a></li><li><a href="docs/CODELAB_FEATURE_GUIDE.md">Feature guide</a></li><li><a href="docs/TECH_STACK.md">Tech stack</a></li></ul></div>
+    <div><h5>Tracks</h5><ul><li><a href="courses.html">Python</a></li><li><a href="courses.html">AI Essentials</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 TechQuest.</span><span>Indigo + Mint</span></div>
+</div></footer>
+
+<script src="js/main.js"></script>
+<script src="js/pyrunner.js"></script>
+<script src="js/exercises.js"></script>
+</body>
+</html>

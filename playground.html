@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Code Lab — TechQuest</title>
+<meta name="description" content="The TechQuest Code Lab: write and run real Python in your browser. No setup, no sign-up, fully private." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .lab { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:stretch; }
+  .pane { background: var(--code-bg); border-radius: var(--r-lg); overflow:hidden; display:flex; flex-direction:column; box-shadow: var(--shadow-lg); min-height: 460px; }
+  .pane-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; background: var(--code-bg-2); border-bottom:1px solid rgba(255,255,255,.07); }
+  .pane-head .ttl { color:#cfc9f0; font-family:var(--font-display); font-weight:600; font-size:.95rem; display:flex; align-items:center; gap:9px; }
+  .lab-editor { flex:1; background:transparent; color:var(--code-text); font-family:var(--font-mono); font-size:.96rem; line-height:1.75; padding:18px; border:none; resize:none; tab-size:4; width:100%; }
+  .lab-editor:focus { outline:none; }
+  .lab-out { flex:1; font-family:var(--font-mono); font-size:.92rem; white-space:pre-wrap; padding:18px; color:#a7f3d0; overflow:auto; }
+  .lab-out .err { color:#fda4af; } .lab-out .muted { color:#7c78a8; }
+  .status { display:inline-flex; align-items:center; gap:8px; font-size:.82rem; font-weight:700; padding:5px 12px; border-radius:var(--r-pill); }
+  .status .dot { width:9px; height:9px; border-radius:50%; }
+  .status.idle { background:rgba(255,255,255,.08); color:#b3aede; } .status.idle .dot { background:#9794bc; }
+  .status.loading { background:rgba(251,191,36,.16); color:#fde68a; } .status.loading .dot { background:#fbbf24; animation:pulse 1s infinite; }
+  .status.ready { background:rgba(52,211,153,.16); color:#6ee7b7; } .status.ready .dot { background:#34d399; }
+  .status.failed { background:rgba(251,113,133,.16); color:#fda4af; } .status.failed .dot { background:#fb7185; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .lab-btn { display:inline-flex; align-items:center; gap:7px; font-family:var(--font-display); font-weight:500; font-size:.9rem; padding:8px 16px; border-radius:var(--r-pill); transition:transform .25s var(--ease-bounce), box-shadow .25s; }
+  .lab-btn svg { width:15px; height:15px; }
+  .lab-run { background:var(--mint-400); color:#053d2b; box-shadow:var(--shadow-mint); }
+  .lab-run:hover { transform:translateY(-2px) scale(1.03); }
+  .lab-run:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+  .lab-ghost { background:rgba(255,255,255,.08); color:#cfc9f0; }
+  .lab-ghost:hover { background:rgba(255,255,255,.15); transform:translateY(-2px); }
+  @media (max-width:900px){ .lab { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="nav-wrap"><nav class="nav">
+  <a href="index.html" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b>Quest</b><span class="spark">.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-nav="index.html">Home</a></li><li><a href="about.html" data-nav="about.html">About</a></li>
+    <li><a href="courses.html" data-nav="courses.html">Courses</a></li><li><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a></li>
+    <li><a href="exercises.html" data-nav="exercises.html">Exercises</a></li><li><a href="quiz.html" data-nav="quiz.html">Quiz</a></li>
+  </ul>
+  <div class="nav-cta"><a href="playground.html" class="btn btn-primary btn-sm menu-cta active"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Code Lab</a><button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
+</nav></div>
+<div class="overlay"></div>
+<aside class="mobile-menu">
+  <a href="index.html" data-nav="index.html">Home</a><a href="about.html" data-nav="about.html">About</a>
+  <a href="courses.html" data-nav="courses.html">Courses</a><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a>
+  <a href="exercises.html" data-nav="exercises.html">Exercises</a><a href="quiz.html" data-nav="quiz.html">Quiz</a>
+  <a href="playground.html" class="btn btn-primary">Open Code Lab</a>
+</aside>
+
+<main class="page">
+  <section style="padding-top:18px;padding-bottom:30px">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap" class="reveal in">
+        <div style="max-width:620px">
+          <span class="eyebrow"><span class="dot"></span> Signature feature</span>
+          <h2 style="font-size:clamp(2rem,4.5vw,2.9rem)">The Code Lab</h2>
+          <p class="lead" style="margin-top:6px">Real Python, running entirely in your browser. Write something, press <b>Run</b> (or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>), and watch it execute. Nothing is uploaded — it's just you and the interpreter.</p>
+        </div>
+        <a href="docs/CODELAB_FEATURE_GUIDE.md" class="btn btn-ghost">📖 How to use it</a>
+      </div>
+
+      <!-- examples -->
+      <div class="chips reveal" id="examples" style="margin-top:22px">
+        <span style="font-weight:700;color:var(--slate);align-self:center;margin-right:4px">Load an example:</span>
+        <button class="chip" data-ex="hello">👋 Hello</button>
+        <button class="chip" data-ex="loop">🔁 Loop &amp; math</button>
+        <button class="chip" data-ex="list">📋 Lists</button>
+        <button class="chip" data-ex="func">🧩 Function</button>
+        <button class="chip" data-ex="ai">🤖 Mini AI scorer</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="lab reveal">
+        <!-- Editor -->
+        <div class="pane">
+          <div class="pane-head">
+            <span class="ttl">🐍 main.py</span>
+            <div style="display:flex;gap:8px">
+              <button class="lab-btn lab-ghost" id="clearBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Clear</button>
+              <button class="lab-btn lab-ghost" id="copyBtn"><svg viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V5a2 2 0 012-2h10" stroke="currentColor" stroke-width="1.8"/></svg>Copy</button>
+              <button class="lab-btn lab-run" id="runBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Run</button>
+            </div>
+          </div>
+          <textarea class="lab-editor" id="editor" spellcheck="false"># Welcome to the TechQuest Code Lab 🚀
+# This is real Python running in your browser.
+# Edit anything and press Run (or Ctrl+Enter).
+
+name = "explorer"
+print(f"Hello, {name}!")
+
+for i in range(1, 4):
+    print(f"Step {i} complete")
+</textarea>
+        </div>
+
+        <!-- Output -->
+        <div class="pane">
+          <div class="pane-head">
+            <span class="ttl">▶ Output</span>
+            <span class="status idle" id="status"><span class="dot"></span><span id="statusText">Engine idle</span></span>
+          </div>
+          <div class="lab-out" id="output"><span class="muted">Output will appear here. Press Run to start — the first run downloads the Python engine once (a few seconds), then it's instant.</span></div>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--slate);font-size:.9rem;margin-top:18px">
+        🔒 Your code runs locally in your browser via Pyodide (WebAssembly). It is never sent to any server.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b style="color:var(--mint-400)">Quest</b></div><p>The hands-on way to learn AI &amp; Python.</p></div>
+    <div><h5>Learn</h5><ul><li><a href="courses.html">Courses</a></li><li><a href="tutorial.html">Tutorials</a></li><li><a href="exercises.html">Exercises</a></li><li><a href="quiz.html">Quiz</a></li></ul></div>
+    <div><h5>Product</h5><ul><li><a href="playground.html">Code Lab</a></li><li><a href="docs/CODELAB_FEATURE_GUIDE.md">Feature guide</a></li><li><a href="docs/TECH_STACK.md">Tech stack</a></li></ul></div>
+    <div><h5>Tracks</h5><ul><li><a href="courses.html">Python</a></li><li><a href="courses.html">AI Essentials</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 TechQuest.</span><span>Indigo + Mint</span></div>
+</div></footer>
+
+<script src="js/main.js"></script>
+<script src="js/pyrunner.js"></script>
+<script src="js/playground.js"></script>
+</body>
+</html>

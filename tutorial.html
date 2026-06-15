@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python Basics — TechQuest Tutorials</title>
+<meta name="description" content="A hands-on Python tutorial with runnable examples. Edit any snippet and run real Python in your browser." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="nav-wrap"><nav class="nav">
+  <a href="index.html" class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b>Quest</b><span class="spark">.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-nav="index.html">Home</a></li><li><a href="about.html" data-nav="about.html">About</a></li>
+    <li><a href="courses.html" data-nav="courses.html">Courses</a></li><li><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a></li>
+    <li><a href="exercises.html" data-nav="exercises.html">Exercises</a></li><li><a href="quiz.html" data-nav="quiz.html">Quiz</a></li>
+  </ul>
+  <div class="nav-cta"><a href="playground.html" class="btn btn-primary btn-sm menu-cta"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Code Lab</a><button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
+</nav></div>
+<div class="overlay"></div>
+<aside class="mobile-menu">
+  <a href="index.html" data-nav="index.html">Home</a><a href="about.html" data-nav="about.html">About</a>
+  <a href="courses.html" data-nav="courses.html">Courses</a><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a>
+  <a href="exercises.html" data-nav="exercises.html">Exercises</a><a href="quiz.html" data-nav="quiz.html">Quiz</a>
+  <a href="playground.html" class="btn btn-primary">Open Code Lab</a>
+</aside>
+
+<main class="page">
+  <div class="container">
+    <div class="tut-layout">
+
+      <!-- Sidebar -->
+      <nav class="tut-side reveal in">
+        <h4>🐍 Python Track</h4>
+        <a href="#intro" class="active">1. Introduction</a>
+        <a href="#print">2. Your first program</a>
+        <a href="#variables">3. Variables &amp; types</a>
+        <a href="#input">4. Getting input</a>
+        <a href="#ifelse">5. Making decisions</a>
+        <a href="#loops">6. Loops</a>
+        <a href="#lists">7. Lists</a>
+        <h4>🤖 AI Track</h4>
+        <a href="courses.html">Intro to AI</a>
+        <a href="courses.html">Machine Learning 101</a>
+        <a href="courses.html">Working with LLMs</a>
+        <h4>Practice</h4>
+        <a href="exercises.html">Exercises →</a>
+        <a href="quiz.html">Take a quiz →</a>
+      </nav>
+
+      <!-- Content -->
+      <article class="tut-content">
+        <span class="eyebrow"><span class="dot"></span> Python · Beginner</span>
+        <h1 id="intro">Python Basics</h1>
+        <p class="lead" style="margin-bottom:8px">Welcome to your first quest! This page works like a notebook — read a little, then edit and <strong>run</strong> the code right here. Every example below executes real Python in your browser.</p>
+        <div class="note tip"><b>💡 How this page works:</b> Each example has a <b>▶ Run</b> button. Change the code however you like, run it, and watch the output appear. The first run takes a few seconds while the Python engine wakes up — after that it's instant.</div>
+
+        <h2 id="print">Your first program</h2>
+        <p>In Python, <code>print()</code> shows text on the screen. It's traditionally the first thing everyone writes. Try running this — then change the message and run it again.</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 example.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">print("Hello, TechQuest!")
+print("I am learning Python 🚀")</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+
+        <h2 id="variables">Variables &amp; types</h2>
+        <p>A <b>variable</b> is a named box that stores a value. Python figures out the type for you. The most common types are text (<code>str</code>), whole numbers (<code>int</code>), decimals (<code>float</code>) and true/false (<code>bool</code>).</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 variables.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">name = "Ada"
+age = 28
+height = 1.71
+is_learning = True
+
+print(name, "is", age, "years old")
+print("Type of age:", type(age))
+print("Type of height:", type(height))</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+        <div class="note"><b>Note:</b> You never declare the type yourself — assign a value and Python infers it. This is called <em>dynamic typing</em>.</div>
+
+        <h2 id="input">Working with text</h2>
+        <p>You can join, repeat, and format strings. <b>f-strings</b> (the <code>f"..."</code> form) let you drop variables straight inside text using curly braces.</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 strings.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">first = "Tech"
+second = "Quest"
+
+print(first + second)        # joining
+print(first * 3)             # repeating
+print(f"Welcome to {first}{second}!")  # f-string
+print(f"It has {len(first + second)} letters")</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+
+        <h2 id="ifelse">Making decisions</h2>
+        <p>Programs get useful when they can choose. <code>if</code> / <code>elif</code> / <code>else</code> run different code depending on whether a condition is <code>True</code>.</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 decisions.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">score = 82
+
+if score >= 90:
+    print("Grade: A 🏆")
+elif score >= 75:
+    print("Grade: B 👍")
+elif score >= 60:
+    print("Grade: C")
+else:
+    print("Keep practising!")</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+        <div class="note tip"><b>💡 Tip:</b> Indentation isn't just style in Python — it's <em>required</em>. The indented lines are the ones that belong to the <code>if</code>.</div>
+
+        <h2 id="loops">Loops</h2>
+        <p>A <b>loop</b> repeats work without copy-pasting. A <code>for</code> loop walks through a sequence; <code>range(n)</code> gives you the numbers 0 to n-1.</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 loops.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">for i in range(1, 6):
+    print(f"{i} x 7 = {i * 7}")
+
+print("---")
+
+total = 0
+for n in [10, 20, 30]:
+    total += n
+print("Total:", total)</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+
+        <h2 id="lists">Lists</h2>
+        <p>A <b>list</b> holds many values in order. You can add to it, sort it, and loop over it. Lists are the most-used data structure in Python.</p>
+        <div class="example" data-ex>
+          <div class="ex-head"><span>🐍 lists.py</span><button class="btn btn-mint btn-sm" data-run>▶ Run</button></div>
+          <textarea class="editor" spellcheck="false">skills = ["python", "loops", "lists"]
+skills.append("functions")
+
+print("I know:", skills)
+print("Count:", len(skills))
+
+skills.sort()
+print("Sorted:", skills)
+
+# list comprehension: shout each skill
+loud = [s.upper() for s in skills]
+print(loud)</textarea>
+          <div class="ex-output" data-out></div>
+        </div>
+
+        <div class="note tip" style="margin-top:34px"><b>🎉 Nice work!</b> You've run real Python across six core concepts. Ready to test yourself? Try the <a href="exercises.html"><b>exercises</b></a> or take the <a href="quiz.html"><b>quiz</b></a>. Want a blank canvas? Open the <a href="playground.html"><b>Code Lab</b></a>.</p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="exercises.html" class="btn btn-primary">Practice with exercises →</a>
+          <a href="quiz.html" class="btn btn-ghost">Take the quiz</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b style="color:var(--mint-400)">Quest</b></div><p>The hands-on way to learn AI &amp; Python.</p></div>
+    <div><h5>Learn</h5><ul><li><a href="courses.html">Courses</a></li><li><a href="tutorial.html">Tutorials</a></li><li><a href="exercises.html">Exercises</a></li><li><a href="quiz.html">Quiz</a></li></ul></div>
+    <div><h5>Product</h5><ul><li><a href="playground.html">Code Lab</a></li><li><a href="docs/CODELAB_FEATURE_GUIDE.md">Feature guide</a></li><li><a href="docs/TECH_STACK.md">Tech stack</a></li></ul></div>
+    <div><h5>Tracks</h5><ul><li><a href="courses.html">Python</a></li><li><a href="courses.html">AI Essentials</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 TechQuest.</span><span>Indigo + Mint</span></div>
+</div></footer>
+
+<script src="js/main.js"></script>
+<script src="js/pyrunner.js"></script>
+<script>
+// Sidebar active-on-scroll
+const links = [...document.querySelectorAll('.tut-side a[href^="#"]')];
+const ids = links.map(a=>a.getAttribute('href').slice(1));
+const spy = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    links.forEach(l=>l.classList.remove('active'));
+    const m = links.find(l=>l.getAttribute('href')==='#'+e.target.id);
+    m && m.classList.add('active');
+  }});
+},{rootMargin:"-40% 0px -55% 0px"});
+ids.forEach(id=>{ const el=document.getElementById(id); el && spy.observe(el); });
+
+// Wire up runnable examples
+document.querySelectorAll('[data-ex]').forEach(ex=>{
+  const btn = ex.querySelector('[data-run]');
+  const ta  = ex.querySelector('.editor');
+  const out = ex.querySelector('[data-out]');
+  // Tab key inserts spaces
+  ta.addEventListener('keydown',e=>{
+    if(e.key==='Tab'){e.preventDefault();const s=ta.selectionStart;ta.value=ta.value.slice(0,s)+"    "+ta.value.slice(ta.selectionEnd);ta.selectionStart=ta.selectionEnd=s+4;}
+  });
+  btn.addEventListener('click', async ()=>{
+    out.classList.add('show');
+    out.innerHTML = '<span class="muted">⏳ Running… (first run loads Python, ~a few seconds)</span>';
+    btn.disabled = true; const orig = btn.textContent; btn.textContent='Running…';
+    try{
+      const r = await TechQuestPy.run(ta.value, msg=>{ out.innerHTML = '<span class="muted">⏳ '+msg+'</span>'; });
+      let html='';
+      if(r.out) html += escapeHtml(r.out);
+      if(r.err) html += (html?'\n':'') + '<span class="err">'+escapeHtml(r.err)+'</span>';
+      out.innerHTML = html || '<span class="muted">(no output — try adding a print)</span>';
+    }catch(err){
+      out.innerHTML = '<span class="err">⚠ Could not load the Python engine. This needs an internet connection (it downloads once from a CDN). On a hosted site it works automatically.</span>';
+    }finally{ btn.disabled=false; btn.textContent=orig; }
+  });
+});
+function escapeHtml(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+</script>
+</body>
+</html>

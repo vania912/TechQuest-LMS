@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TechQuest — Learn AI &amp; Python by Doing</title>
+<meta name="description" content="TechQuest is a modern, hands-on learning platform for AI and Python. Read tutorials, run real code in the browser, solve exercises, and test yourself with quizzes." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Tech<b>Quest</b><span class="spark">.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav="index.html">Home</a></li>
+      <li><a href="about.html" data-nav="about.html">About</a></li>
+      <li><a href="courses.html" data-nav="courses.html">Courses</a></li>
+      <li><a href="tutorial.html" data-nav="tutorial.html">Tutorials</a></li>
+      <li><a href="exercises.html" data-nav="exercises.html">Exercises</a></li>
+      <li><a href="quiz.html" data-nav="quiz.html">Quiz</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="playground.html" class="btn btn-primary btn-sm menu-cta">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Code Lab
+      </a>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</div>
+<div class="overlay"></div>
+<aside class="mobile-menu">
+  <a href="index.html" data-nav="index.html">Home</a>
+  <a href="about.html" data-nav="about.html">About</a>
+  <a href="courses.html" data-nav="courses.html">Courses</a>
+  <a href="tutorial.html" data-nav="tutorial.html">Tutorials</a>
+  <a href="exercises.html" data-nav="exercises.html">Exercises</a>
+  <a href="quiz.html" data-nav="quiz.html">Quiz</a>
+  <a href="playground.html" class="btn btn-primary">Open Code Lab</a>
+</aside>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow"><span class="dot"></span> Learn by doing, not memorising</span>
+      <h1>Master <span class="grad">AI &amp; Python</span> right in your browser.</h1>
+      <p class="lead">TechQuest blends bite-sized tutorials with a real Python engine, hands-on exercises, and quick quizzes — so every concept you read is something you immediately <em>run</em>.</p>
+      <div class="hero-actions">
+        <a href="courses.html" class="btn btn-primary btn-lg">Start learning free</a>
+        <a href="playground.html" class="btn btn-ghost btn-lg">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>Try the Code Lab
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b data-count="120" data-suffix="+">0</b><span>Lessons</span></div>
+        <div class="stat"><b data-count="60" data-suffix="+">0</b><span>Exercises</span></div>
+        <div class="stat"><b data-count="100" data-suffix="%">0</b><span>Runs in browser</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal in d1">
+      <div class="float-card">
+        <div class="dots"><i></i><i></i><i></i></div>
+<pre class="code-line"><span class="com"># your first AI helper 🤖</span>
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+    <span class="kw">return</span> <span class="str">f"Hi {name}, welcome to TechQuest!"</span>
+
+<span class="fn">print</span>(greet(<span class="str">"learner"</span>))
+<span class="com"># → Hi learner, welcome to TechQuest!</span>
+
+<span class="kw">import</span> random
+tips = [<span class="str">"practice"</span>, <span class="str">"build"</span>, <span class="str">"repeat"</span>]
+<span class="fn">print</span>(<span class="str">"Today:"</span>, random.choice(tips))</pre>
+      </div>
+      <div class="badge-float b1"><span class="ico" style="background:var(--mint-400)"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M5 13l4 4L19 7" stroke="#053d2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Output verified</div>
+      <div class="badge-float b2"><span class="ico" style="background:var(--indigo-600)"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#fff"/></svg></span>Runs instantly</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== WHY ===== -->
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> Why TechQuest</span>
+      <h2>Everything you need to actually <em>get it</em>.</h2>
+      <p>Reading about code teaches you words. Running it teaches you skills. TechQuest is built around the second one.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card reveal">
+        <div class="ico ico-indigo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Readable tutorials</h3>
+        <p>Short, friendly lessons that explain the <em>why</em> before the <em>how</em> — with examples you can edit and run on the same page.</p>
+      </div>
+      <div class="card reveal d1">
+        <div class="ico ico-mint"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg></div>
+        <h3>Real Python, no setup</h3>
+        <p>Our Code Lab runs genuine Python in your browser via WebAssembly. No installs, no accounts, no waiting.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="ico ico-sun"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8M21 12v6a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Practice &amp; prove it</h3>
+        <p>Auto-checked exercises and instant-feedback quizzes turn passive reading into measurable progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COURSES PREVIEW ===== -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Tracks</span>
+      <h2>Two tracks to start with.</h2>
+      <p>We're launching with the two most in-demand foundations. More tracks are on the way.</p>
+    </div>
+    <div class="grid grid-2">
+      <article class="card course-card reveal">
+        <div class="top"><div class="cover cover-python"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C7 2 8 6 8 6v2h5v1H6s-3-.5-3 5 3 5 3 5h2v-3s-.2-3 3-3h4s3 .1 3-3V6s.4-4-4-4zm-2 2.2a.9.9 0 110 1.8.9.9 0 010-1.8z" fill="currentColor"/></svg></div></div>
+        <div class="body">
+          <span class="tag tag-py">Python Foundations</span>
+          <h3 style="margin-top:12px">Python from zero to confident</h3>
+          <p>Variables, loops, functions, data structures and real mini-projects — each lesson runnable on the spot.</p>
+          <div class="course-meta"><span>📘 28 lessons</span><span>🧩 24 exercises</span><span>⏱ 6 hrs</span></div>
+          <div class="progress"><i style="width:0%"></i></div>
+          <a href="tutorial.html" class="btn btn-primary btn-sm">Open track</a>
+        </div>
+      </article>
+      <article class="card course-card reveal d1">
+        <div class="top"><div class="cover cover-ai"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" fill="currentColor"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></div>
+        <div class="body">
+          <span class="tag tag-ai">AI Essentials</span>
+          <h3 style="margin-top:12px">AI &amp; machine learning, demystified</h3>
+          <p>How models learn, prompts, embeddings and a hands-on intro to building with AI — explained in plain language.</p>
+          <div class="course-meta"><span>📗 22 lessons</span><span>🧩 18 exercises</span><span>⏱ 5 hrs</span></div>
+          <div class="progress"><i style="width:0%"></i></div>
+          <a href="courses.html" class="btn btn-mint btn-sm">Open track</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CODE LAB SPOTLIGHT ===== -->
+<section>
+  <div class="container">
+    <div class="spotlight reveal">
+      <div class="spotlight-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Our signature feature</span>
+          <h2>Meet the Code Lab.</h2>
+          <p style="font-size:1.1rem;margin:14px 0 22px">A full Python interpreter that runs <strong>inside your browser tab</strong> — powered by Pyodide &amp; WebAssembly. Write code, hit run, see real output in milliseconds. Nothing is sent to a server; nothing to install.</p>
+          <ul class="bullets" style="list-style:none;margin:0 0 26px;color:#cfc9f0">
+            <li style="margin-bottom:10px">⚡ Instant execution, zero setup</li>
+            <li style="margin-bottom:10px">🔒 100% private — code never leaves your device</li>
+            <li style="margin-bottom:10px">📚 Loadable examples for every lesson &amp; exercise</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="playground.html" class="btn btn-mint">Launch Code Lab</a>
+            <a href="docs/CODELAB_FEATURE_GUIDE.md" class="btn btn-ghost" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)">Read the guide</a>
+          </div>
+        </div>
+        <div class="float-card" style="transform:rotate(-2deg)">
+          <div class="dots"><i></i><i></i><i></i></div>
+<pre class="code-line"><span class="com"># try it yourself ✨</span>
+nums = [<span class="num">3</span>, <span class="num">7</span>, <span class="num">2</span>, <span class="num">9</span>, <span class="num">4</span>]
+nums.<span class="fn">sort</span>()
+<span class="fn">print</span>(<span class="str">"sorted:"</span>, nums)
+<span class="fn">print</span>(<span class="str">"max:"</span>, <span class="fn">max</span>(nums))
+
+<span class="com"># list comprehension</span>
+squares = [n*n <span class="kw">for</span> n <span class="kw">in</span> nums]
+<span class="fn">print</span>(squares)</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> The loop</span>
+      <h2>Read → Run → Practice → Prove.</h2>
+      <p>A simple four-step loop that turns curiosity into capability.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card reveal"><div class="ico ico-indigo">1</div><h3 style="font-size:1.15rem">Read</h3><p>Learn a concept in a focused, friendly tutorial.</p></div>
+      <div class="card reveal d1"><div class="ico ico-mint">2</div><h3 style="font-size:1.15rem">Run</h3><p>Edit the live example and run real Python instantly.</p></div>
+      <div class="card reveal d2"><div class="ico ico-sun">3</div><h3 style="font-size:1.15rem">Practice</h3><p>Solve an auto-checked exercise to apply it.</p></div>
+      <div class="card reveal d3"><div class="ico ico-coral">4</div><h3 style="font-size:1.15rem">Prove</h3><p>Take a quick quiz and watch your score climb.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section>
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Your first line of code is one click away.</h2>
+      <p>No sign-up. No credit card. Just open the Code Lab and start your quest.</p>
+      <div class="hero-actions">
+        <a href="playground.html" class="btn btn-mint btn-lg">Open the Code Lab</a>
+        <a href="courses.html" class="btn btn-ghost btn-lg" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)">Browse courses</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" fill="#fff"/><path d="M4 7v6l8 4 8-4V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tech<b style="color:var(--mint-400)">Quest</b></div>
+        <p>The hands-on way to learn AI &amp; Python. Read, run, practice, and prove what you know — all in the browser.</p>
+      </div>
+      <div><h5>Learn</h5><ul><li><a href="courses.html">Courses</a></li><li><a href="tutorial.html">Tutorials</a></li><li><a href="exercises.html">Exercises</a></li><li><a href="quiz.html">Quiz</a></li></ul></div>
+      <div><h5>Product</h5><ul><li><a href="playground.html">Code Lab</a></li><li><a href="docs/CODELAB_FEATURE_GUIDE.md">Feature guide</a></li><li><a href="docs/TECH_STACK.md">Tech stack</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div><h5>Tracks</h5><ul><li><a href="courses.html">Python</a></li><li><a href="courses.html">AI Essentials</a></li><li><a href="about.html">Roadmap</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechQuest. Built for curious humans.</span>
+      <span>Made with Fredoka &amp; Plus Jakarta Sans · Indigo + Mint</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
