@@ -1,2 +1,2 @@
 # TechQuest-lms
-online lms system
+Online LMS System
